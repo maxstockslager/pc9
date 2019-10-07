@@ -1,0 +1,20 @@
+"0","```r
+directory <- read_excel(\"data_directory.xlsx\")
+metadata <- load_metadata() %>% filter(use_in_analysis == T)
+```"
+"1","package ã¤¼ã¸±googlesheetsã¤¼ã¸² was built under R version 3.5.3
+"
+"1","
+Downloading: 230 B     
+Downloading: 230 B     
+Downloading: 240 B     
+Downloading: 240 B     
+Downloading: 240 B     
+Downloading: 240 B     
+"
+"0","```r
+metadata <- clean_metadata(metadata)
+temp_data_smr <- load_smr_data(metadata) %>% left_join(metadata, by = \"expt_id\") 
+temp_data_coulter <- read_coulter_data(metadata = directory)
+temp_data_facs <- read_facs_data(metadata = directory)
+```"

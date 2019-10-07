@@ -1,0 +1,4 @@
+"0","p2 <- plot_derived_quantity_vs_time(derived_quantity_to_plot = ""hellinger_dist"","
+"0","                                   line_to_plot = ""BT440"","
+"0","                                   derived_quantities_by_sample)"
+"0","p2 + ylab(""Hellinger distance"") + scale_y_log10() + coord_cartesian(ylim = c(0.003, 0.2))"

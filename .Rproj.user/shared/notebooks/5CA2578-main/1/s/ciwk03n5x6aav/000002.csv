@@ -1,0 +1,31 @@
+"0","```r
+df <- data.frame(
+  x = x,
+  pro_b = p_pro_b_given_size,
+  early_b = p_early_b_given_size,
+  cful = p_cful_given_size
+) %>%
+  rowwise() %>%
+  mutate(other = 1-(pro_b+early_b+cful)) 
+df <- df %>%
+  gather(key = \"id\", value = \"pct\", cols = -x)
+df$id <- factor(df$id, levels = c(\"other\", \"cful\", \"pro_b\", \"early_b\"))
+df <- df %>% arrange(pct)
+df %>% 
+  # filter(id != \"other\") %>%
+  ggplot(mapping = aes(x = x, y = pct, fill = factor(id))) + 
+  
+  geom_area(position = \"stack\", alpha = 0.5) +
+  geom_line(position = \"stack\", color = \"black\") +
+  scale_fill_manual(values = c(\"other\" = \"gray\",
+                               \"pro_b\" = \"dodgerblue4\",
+                               \"cful\" = \"green\", 
+                               \"early_b\" = \"red\")) + 
+  ylab(\"Probability of class given volume\") + 
+  xlab(\"Volume (fL)\") +
+  theme_bw() + 
+  theme(panel.grid = element_blank()) + 
+  coord_cartesian(expand = c(0,0),
+                  xlim = c(0, 1000)) + 
+  labs(fill = \"class\")
+```"

@@ -1,0 +1,5 @@
+"0","```r
+data$smr %>%
+  ggplot(mapping = aes(x = mass, fill = name)) + 
+  geom_density(alpha = 0.3)
+```"

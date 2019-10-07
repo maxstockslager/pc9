@@ -1,0 +1,8 @@
+"0","```r
+tt <- seq(from = 0, 
+          to = max(data$overall_survival, na.rm = T), 
+          length.out = 100)
+```"
+"1","Error in data$overall_survival : 
+  object of type 'closure' is not subsettable
+"

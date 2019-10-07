@@ -1,0 +1,64 @@
+"0","```r
+overlay_histogram <- function(sample, system, variable, xlim_lower, xlim_upper, ylim_upper, xlabel) {
+p <- data[[system]] %>%
+  filter(name %in% c(\"Pseudo bulk\", sample)) %>%
+  filter(UQ(as.name(variable)) > xlim_lower) %>%
+  filter(UQ(as.name(variable)) < xlim_upper) %>%
+  ggplot(mapping = aes_string(x = variable, fill = \"name\")) + 
+  geom_density(alpha = 0.5) + 
+  scale_fill_manual(values = c(\"Pseudo bulk\" = \"gray50\",
+                               \"Early B\" = \"red\",
+                               \"Pro B\" = \"dodgerblue4\", 
+                               \"CFUL\" = \"green\")) + 
+  theme_bw() + 
+  ylab(\"\") +
+  ggtitle(sample) +
+  theme(legend.position = \"none\") + 
+  coord_cartesian(xlim = c(0, xlim_upper),
+                  ylim = c(0, ylim_upper),
+                  expand = c(0,0)) + 
+  geom_vline(xintercept = xlim_lower,
+             linetype = \"dashed\") + 
+  xlab(xlabel)
+return(p)
+}
+smr_plots <- pmap(.l = list(sample = c(\"Pseudo-bulk\", \"Pro B\", \"Early B\", \"CFUL\"), 
+                        system = \"smr\",
+                        variable = \"mass\",
+                        xlim_lower = 0,
+                        xlim_upper = 50,
+                        ylim_upper = 0.35,
+                        xlabel = \"Mass (pg)\"),
+              .f = overlay_histogram)
+coulter_plots <- pmap(.l = list(sample = c(\"Pseudo-bulk\", \"Pro B\", \"Early B\", \"CFUL\"),
+                        system = \"coulter\",
+                        variable = \"coulter_volume\",
+                        xlim_lower = 125,
+                        xlim_upper = 1200,
+                        ylim_upper = 0.006,
+                        xlabel = \"Volume (fL)\"),
+              .f = overlay_histogram)
+smr_plots_grob <- do.call(\"arrangeGrob\", c(smr_plots, ncol=4))
+```"
+"1","the condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be used
+"
+"0","```r
+coulter_plots_grob <- do.call(\"arrangeGrob\", c(coulter_plots, ncol=4))
+```"
+"1","the condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be usedthe condition has length > 1 and only the first element will be used
+"
+"0","```r
+ggsave(\"output/figs-raw/smr.svg\",
+       plot = smr_plots_grob,
+       width = 9,
+       height = 2.5)
+```"
+"1","package ã¤¼ã¸±gdtoolsã¤¼ã¸² was built under R version 3.5.1
+"
+"0","```r
+ggsave(\"output/figs-raw/coulter.svg\",
+       plot = coulter_plots_grob,
+       width = 9,
+       height = 2.5)
+do.call(\"grid.arrange\", c(smr_plots, ncol=4))
+```"

@@ -1,0 +1,3 @@
+"0","ctg_summary <- ctg %>%"
+"0","  group_by(batch, line) %>%"
+"0","  summarize(ctg_aoc = 1-mean(viability))"

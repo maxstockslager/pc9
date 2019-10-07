@@ -1,0 +1,2 @@
+"0","data_filename <- ""raw/incucyte_raw/batch4.csv"""
+"0","data_raw <- read.csv(data_filename, skip = 1) %>% as.tibble()"

@@ -1,0 +1,9 @@
+"0","```r
+data <- list(smr = temp_data_smr,
+             coulter = temp_data_coulter,
+             facs = temp_data_facs)
+data$coulter$name <- factor(data$coulter$name,
+                         levels = c(\"True bulk\", \"Pseudo bulk\", \"CFUL\", \"Pro B\", \"Early B\"))
+data$facs$name <- factor(data$facs$name,
+                         levels = c(\"True bulk\", \"Pseudo bulk\", \"CFUL\", \"Pro B\", \"Early B\"))
+```"

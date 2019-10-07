@@ -1,0 +1,36 @@
+"0","```r
+PATIENT_SPREADSHEET <- \"./assay_summaries/patient_outcomes_2.csv\"
+GENOMIC_SPREADSHEET <- \"./assay_summaries/metadata_summary.csv\"
+data <- read_csv(PATIENT_SPREADSHEET)
+```"
+"1","Parsed with column specification:
+cols(
+  line = col_character(),
+  overall_survival = col_integer(),
+  date_diagnosis = col_character(),
+  date_death = col_character(),
+  date_progression = col_character(),
+  pfs = col_integer(),
+  treatment = col_character()
+)
+"
+"0","```r
+metadata <- read_csv(GENOMIC_SPREADSHEET)
+```"
+"1","Parsed with column specification:
+cols(
+  line = col_character(),
+  mutation_mdm2 = col_character(),
+  mutation_mdm4 = col_character(),
+  mutation_tp53 = col_character(),
+  mgmt_methylation = col_character(),
+  rb1_status = col_character(),
+  `CDK4/6` = col_character(),
+  `CDKN2A/B` = col_character()
+)
+"
+"0","```r
+data <- left_join(data, metadata, by = \"line\") %>%
+  mutate(overall_survival = overall_survival / 30,
+         pfs = pfs / 30)
+```"

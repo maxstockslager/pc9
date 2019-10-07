@@ -1,0 +1,5 @@
+"0","# one result per line here"
+"0","biomarkers <- derived_quantities_by_sample %>%"
+"0","  group_by(batch, line) %>%"
+"0","  summarize(mean_hellinger_dist = mean(hellinger_dist, na.rm = TRUE),"
+"0","            mean_mass_change_vs_control = mean(mass_change_vs_control, na.rm = TRUE))"

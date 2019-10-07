@@ -1,0 +1,6 @@
+"0","left_join(ctg, genomics, by = ""line"") %>%"
+"0","  ggplot(mapping = aes(x = treatment_days, y = viability, color = pt_mgmt)) + "
+"0","  geom_point() + "
+"0","  facet_wrap(~ line) + "
+"0","  geom_hline(yintercept = 1) + "
+"0","  theme_bw()"

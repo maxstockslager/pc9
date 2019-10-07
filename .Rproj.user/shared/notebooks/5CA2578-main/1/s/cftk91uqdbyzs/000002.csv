@@ -1,0 +1,25 @@
+"0","```r
+get_density <- function(sample_name) {
+  obj_density <- data$smr %>%
+    filter(mass < 50) %>%
+    filter(sample_name == name) %>%
+    .$mass %>%
+    density(from = 0,
+            to = 50,
+            bw = 1.5)
+  return(obj_density)
+}
+pseudo_bulk = get_density(\"Pseudo bulk\")
+smr_densities <- list(
+  pro_b = get_density(\"Pro B\"),
+  early_b = get_density(\"Early B\"),
+  cful = get_density(\"CFUL\")
+) 
+x = smr_densities$pro_b$x # masses
+pro_b_prior = 0.075
+early_b_prior = 0.075
+cful_prior = 0.075
+p_pro_b_given_size = (smr_densities$pro_b$y) * pro_b_prior / pseudo_bulk$y
+p_early_b_given_size = (smr_densities$early_b$y) * early_b_prior / pseudo_bulk$y
+p_cful_given_size = (smr_densities$cful$y) * cful_prior / pseudo_bulk$y
+```"

@@ -1,0 +1,6 @@
+"0","data_tidy %>%"
+"0","  ggplot(mapping = aes(x = treatment, y = value)) + "
+"0","  facet_grid(. ~ line) + "
+"0","  geom_point() + "
+"0","  theme_bw() + "
+"0","  xlab("""")"

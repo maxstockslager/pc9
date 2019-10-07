@@ -1,0 +1,4 @@
+"0","left_join(clinical, genomics, by = ""line"") %>%"
+"0","  ggplot(mapping = aes(x = pt_mgmt, y = overall_survival, color = line)) + "
+"0","  geom_jitter(height = 0, width = 0.2) + "
+"0","  theme_bw()"

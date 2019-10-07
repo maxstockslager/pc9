@@ -1,0 +1,23 @@
+"0","```r
+suppressMessages(library(tidyverse))
+```"
+"1","package ã¤¼ã¸±ggplot2ã¤¼ã¸² was built under R version 3.5.1
+"
+"0","```r
+suppressMessages(library(assertthat))
+suppressMessages(library(cowplot))
+suppressMessages(library(gridExtra))
+```"
+"1","package ã¤¼ã¸±gridExtraã¤¼ã¸² was built under R version 3.5.1
+"
+"0","```r
+suppressMessages((library(readxl)))
+```"
+"1"," [1] \"readxl\"     \"gridExtra\"  \"cowplot\"    \"assertthat\" \"forcats\"    \"stringr\"    \"dplyr\"      \"purrr\"      \"readr\"      \"tidyr\"      \"tibble\"     \"ggplot2\"   
+[13] \"tidyverse\"  \"stats\"      \"graphics\"   \"grDevices\"  \"utils\"      \"datasets\"   \"methods\"    \"base\"      
+"
+"0","```r
+source(\"import-data.R\")
+source(\"analyze-data.R\")
+source(\"plot-data.R\")
+```"

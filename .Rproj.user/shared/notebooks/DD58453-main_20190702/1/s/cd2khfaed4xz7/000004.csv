@@ -1,0 +1,32 @@
+"0","  coord_cartesian(xlim = c(-0.01, 0.25),"
+"0","                  ylim = c(0.3, 1.5), "
+"0","                  expand = c(0,0.2))"
+"1","<ggproto object: Class CoordCartesian, Coord, gg>
+    aspect: function
+    backtransform_range: function
+    clip: on
+    default: FALSE
+    distance: function
+    expand: 0 0.2
+    is_free: function
+    is_linear: function
+    labels: function
+    limits: list
+    modify_scales: function
+    range: function
+    render_axis_h: function
+    render_axis_v: function
+    render_bg: function
+    render_fg: function
+    setup_data: function
+    setup_layout: function
+    setup_panel_params: function
+    setup_params: function
+    transform: function
+    super:  <ggproto object: Class CoordCartesian, Coord, gg>"
+"1","
+"
+"0"," "
+"0","ggsave(""output/figs-raw/hellinger_mean_correlation.svg"","
+"0","       width = 4,"
+"0","       height = 3.2)"

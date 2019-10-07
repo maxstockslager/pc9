@@ -1,0 +1,31 @@
+"0","```r
+p1 <- data$facs %>%
+  ggplot(mapping = aes(x = FSC.A, fill = name)) + 
+  geom_density(alpha = 0.5) + 
+  ggtitle(\"FSC-A\") + 
+    scale_fill_manual(values = c(\"Pseudo bulk\" = \"gray50\",
+                                 \"Early B\" = \"red\",
+                                 \"Pro B\" = \"dodgerblue4\", 
+                                 \"CFUL\" = \"green\")) + 
+  theme_bw() + 
+  coord_cartesian(ylim = c(0, 5e-5), expand=c(0,0)) + 
+  xlab(\"FSC-A (a.u.)\") +
+  ylab(\"Density\") + 
+  theme(axis.ticks.y = element_blank(),
+         axis.text.y = element_blank())
+p2 <- data$facs %>%
+  ggplot(mapping = aes(x = SSC.A, fill = name)) + 
+  geom_density(alpha = 0.5) + 
+  ggtitle(\"SSC-A\") +
+    scale_fill_manual(values = c(\"Pseudo bulk\" = \"gray50\",
+                                 \"Early B\" = \"red\",
+                                 \"Pro B\" = \"dodgerblue4\", 
+                                 \"CFUL\" = \"green\")) + 
+  theme_bw() + 
+  coord_cartesian(ylim = c(0, 0.0013), expand=c(0,0)) + 
+  xlab(\"SSC-A (a.u.)\") +
+  ylab(\"Density\") + 
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank())
+grid.arrange(p1, p2, ncol = 2)
+```"

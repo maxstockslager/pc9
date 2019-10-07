@@ -1,0 +1,25 @@
+"0","```r
+get_density <- function(sample_name) {
+  obj_density <- data$coulter %>%
+    filter(coulter_volume < 1000) %>%
+    filter(sample_name == name) %>%
+    .$coulter_volume %>%
+    density(from = 0,
+            to = 1000,
+            bw = 30)
+  return(obj_density)
+}
+pseudo_bulk = get_density(\"Pseudo bulk\")
+coulter_densities <- list(
+  pro_b = get_density(\"Pro B\"),
+  early_b = get_density(\"Early B\"),
+  cful = get_density(\"CFUL\")
+) 
+x = coulter_densities$pro_b$x # masses
+pro_b_prior = 0.075
+early_b_prior = 0.075
+cful_prior = 0.075
+p_pro_b_given_size = (coulter_densities$pro_b$y) * pro_b_prior / pseudo_bulk$y
+p_early_b_given_size = (coulter_densities$early_b$y) * early_b_prior / pseudo_bulk$y
+p_cful_given_size = (coulter_densities$cful$y) * cful_prior / pseudo_bulk$y
+```"

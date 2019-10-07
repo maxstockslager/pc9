@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569499538354.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2492661800",
+    "id" : "CFECD84",
+    "lastKnownWriteTime" : 1570476943,
+    "last_content_update" : 1570476943002,
+    "path" : "~/R/smr-analysis-template/process_smr.R",
+    "project_path" : "process_smr.R",
+    "properties" : {
+        "cursorPosition" : "86,0",
+        "scrollLine" : "56"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
